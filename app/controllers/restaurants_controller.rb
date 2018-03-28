@@ -15,12 +15,12 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
-      redirect_to restaurant_path
+      redirect_to restaurant_path(@restaurant)
     else
       render :new
     end
   end
-end
+
 
   # def edit
   #   @task = Task.find(params[:id])
@@ -43,9 +43,10 @@ end
   # end
 
 
-  # private
+ private
 
-  # def task_params
-  #   params.require(:task).permit(:title, :details)
-  # end
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :address, :category)
+  end
+end
 
