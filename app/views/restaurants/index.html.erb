@@ -1,11 +1,19 @@
-<%= @restaurants.each do |restaurant| %>
-  <h2>Restaurants</h2>
-  <p><%=restaurant.name%></p>
-  <p><%=restaurant.address%></p>
-  <p><%=restaurant.category%></p>
 
-<%end%>
+<div class="container">
+  <h1>My list of restaurants</h1>
 
+  <% @restaurants.each do |restaurant| %>
+    <h2>Name: <%=restaurant.name %></h2>
+    <p><%=restaurant.address%></p>
+    <p><%=restaurant.category%></p>
+    <p>
+      <%= link_to "New Review", new_restaurant_review_path(restaurant)%>
+    </p>
+
+  <%end%>
+
+  <%= link_to "Add Restaurant", new_restaurant_path %></p>
+</div>
 
 
 
